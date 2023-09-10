@@ -29,7 +29,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#f8f8f8",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -45,12 +45,15 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#eee",
     borderRadius: 30,
+    backgroundColor: "#ffffff",
   },
   result: {
-    marginTop: 50,
+    marginTop: 30,
     height: 200,
     width: "100%",
     borderWidth: 2,
     borderColor: "#eee",
+    backgroundColor: "#ffffff",
+    borderRadius: 15,
   },
 });
