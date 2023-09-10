@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 
 export default function App() {
   const [inputValue, setInputValue] = useState(""); // Skapar en state kommer ihåg inmatade ordet.
+  const [audio, setAudio] = useState(""); // Skapar en state kommer ihåg ljudfilen
   const [definition, setDefinition] = useState(null); // Skapar en state som kommer ihpg definitionen av ordet.
-
 
   return (
     <View style={styles.container}>
