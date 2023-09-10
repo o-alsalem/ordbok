@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, TextInput } from "react-native";
 
 export default function App() {
   const [inputValue, setInputValue] = useState(""); // Skapar en state kommer ihåg inmatade ordet.
+  const [definition, setDefinition] = useState(null); // Skapar en state som kommer ihpg definitionen av ordet.
+
 
   return (
     <View style={styles.container}>
@@ -13,12 +15,13 @@ export default function App() {
         {/* EN view som håller i sökfältet och resultat */}
         <TextInput // Ett input fält där inmatad data skickas till inputValue state.
           style={styles.input}
-          placeholder="Enter text here"
+          placeholder="Sök efter definitionen av ett ord."
           value={inputValue}
           onChangeText={(text) => setInputValue(text)}
         />
 
         <View style={styles.result}>
+          <Text style={styles.resultTitlle}>Definition:</Text>
           {/* Added view for the search result */}
         </View>
       </View>
@@ -55,5 +58,9 @@ const styles = StyleSheet.create({
     borderColor: "#eee",
     backgroundColor: "#ffffff",
     borderRadius: 15,
+  },
+  resultTitlle: {
+    padding: 30,
+    color: "#bebebe",
   },
 });
