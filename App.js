@@ -17,8 +17,11 @@ export default function App() {
           value={inputValue}
           onChangeText={(text) => setInputValue(text)}
         />
+
+        <View style={styles.result}>
+          {/* Added view for the search result */}
+        </View>
       </View>
-      <View style={styles.result}></View>
     </View>
   );
 }
@@ -36,10 +39,18 @@ const styles = StyleSheet.create({
   },
   input: {
     marginTop: 30,
-    height: 50,
+    paddingLeft: 30,
+    padding: 20,
     width: "100%",
     borderWidth: 2,
     borderColor: "#eee",
-    borderRadius: 15,
+    borderRadius: 30,
+  },
+  result: {
+    marginTop: 50,
+    height: 200,
+    width: "100%",
+    borderWidth: 2,
+    borderColor: "#eee",
   },
 });
