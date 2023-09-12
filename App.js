@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react"; //Importerar state från react.
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import { Audio } from "expo-av";
 
 export default function App() {
   const [error, setError] = useState(null);
@@ -42,6 +43,10 @@ export default function App() {
       ) {
         // Om en definition hittas, uppdatera state med definitionen
         setDefinition(data[0].meanings[0].definitions[0].definition);
+        // Om en ljudfil hittas, updateras sate med uri.
+        if (data[0].phonetics && data[0].phonetics[0].audio) {
+          setAudio(data[0].phonetics[0].audio);
+        }
       } else {
         // Om ingen definition hittades, uppdatera state med ett meddelande som indikerar detta
         setDefinition("Ordet eller defintionen hittades inte hos oss.");
@@ -74,9 +79,26 @@ export default function App() {
         {/* Added view for the search result */}
         <View style={styles.result}>
           <Text style={styles.resultTitlle}>Definition:</Text>
+
           {loading && <Text style={{ padding: 30 }}>Loading...</Text>}
           {definition && (
             <Text style={{ padding: 30, paddingTop: 0 }}>{definition}</Text>
+          )}
+          {/* En knapp för uppspelning av ljud */}
+          {audio && (
+            <Button
+              style={styles.playButton}
+              title="Lyssna"
+              onPress={async () => {
+                const soundObject = new Audio.Sound();
+                try {
+                  await soundObject.loadAsync({ uri: audio });
+                  await soundObject.playAsync();
+                } catch (error) {
+                  console.error(error);
+                }
+              }}
+            />
           )}
         </View>
       </View>
@@ -117,5 +139,8 @@ const styles = StyleSheet.create({
   resultTitlle: {
     padding: 30,
     color: "#bebebe",
+  },
+  playButton: {
+    height: 50,
   },
 });
