@@ -73,7 +73,7 @@ export default function App() {
       <StatusBar style="auto" />
       <View style={styles.navHolder}>
         <Pressable style={styles.toFav}>
-          <Text style={styles.appButtonText}>♥ Mina Favoriter</Text>
+          <Text style={styles.appButtonText}>Mina Favoriter ♥ </Text>
         </Pressable>
       </View>
       <View style={styles.appHolder}>
@@ -85,6 +85,13 @@ export default function App() {
           onSubmitEditing={searchDefinition}
           onChangeText={(text) => setInputValue(text)}
         />
+        <Pressable
+          style={styles.searchButton}
+          testID="search-button"
+          onPress={searchDefinition}
+        >
+          <Text style={styles.searchButtonText}>Sök</Text>
+        </Pressable>
         {error && <Text style={styles.errorMessage}>{error}</Text>}
 
         {/* Added view for the search result */}
