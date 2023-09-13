@@ -90,7 +90,7 @@ export default function App() {
           testID="search-button"
           onPress={searchDefinition}
         >
-          <Text style={styles.searchButtonText}>Sök</Text>
+          <Text style={styles.searchButtonText}>Hitta</Text>
         </Pressable>
         {error && <Text style={styles.errorMessage}>{error}</Text>}
 
@@ -139,11 +139,24 @@ const styles = StyleSheet.create({
     marginTop: 30,
     paddingLeft: 30,
     padding: 20,
-    width: "100%",
+    width: "79%",
     borderWidth: 2,
     borderColor: "#eee",
     borderRadius: 30,
     backgroundColor: "#ffffff",
+  },
+  searchButton: {
+    position: "absolute",
+    top: 30,
+    right: 0,
+    padding: 20,
+    width: "20%",
+    borderWidth: 2,
+    borderColor: "#eee",
+    borderRadius: 30,
+    backgroundColor: "#ffffff",
+    alignContent: "center",
+    alignItems: "center",
   },
   result: {
     marginTop: 30,
