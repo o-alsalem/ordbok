@@ -71,11 +71,6 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <View style={styles.navHolder}>
-        <Pressable style={styles.toFav}>
-          <Text style={styles.appButtonText}>Mina Favoriter ♥ </Text>
-        </Pressable>
-      </View>
       <View style={styles.appHolder}>
         {/* EN view som håller i sökfältet och resultat */}
         <TextInput // Ett input fält där inmatad data skickas till inputValue state.
@@ -174,23 +169,5 @@ const styles = StyleSheet.create({
   playButton: {
     height: 50,
   },
-  navHolder: {
-    width: "50%",
-    height: 40,
-    backgroundColor: "transparent",
-  },
-  toFav: {
-    marginLeft: "81%",
-    width: 120,
-    height: 40,
-    backgroundColor: "#fff",
-    color: "#222",
-    borderWidth: 2,
-    borderColor: "#eee",
-    backgroundColor: "#ffffff",
-    borderRadius: 15,
-    alignContent: "center",
-    justifyContent: "center",
-    alignItems: "center",
-  },
+
 });
